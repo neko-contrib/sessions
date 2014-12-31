@@ -1,6 +1,8 @@
 #sessions
+[![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://godoc.org/github.com/neko-contrib/sessions)
+[![GoCover](http://gocover.io/_badge/github.com/neko-contrib/sessions)](http://gocover.io/github.com/neko-contrib/sessions)
 
-Session middleware for [Neko](https://github.com/rocwong/neko)
+[Neko](https://github.com/rocwong/neko) middleware/handler that provides a Session service.
 
 ## Usage
 
@@ -14,7 +16,7 @@ import (
 func main() {
   m := neko.New()
 
-  m.Use(neko.Sessions("sess_neko", sessions.NewCookieStore([]byte("secret123"))))
+  m.Use(session.Sessions("sess_neko", sessions.NewCookieStore([]byte("secret123"))))
 
   m.GET("/", func (ctx *neko.Context) {
     ctx.Session.Set("myvalue", "Session Save")
