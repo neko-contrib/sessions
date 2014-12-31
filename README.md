@@ -16,7 +16,7 @@ import (
 func main() {
   m := neko.New()
 
-  m.Use(session.Sessions("sess_neko", sessions.NewCookieStore([]byte("secret123"))))
+  m.Use(sessions.Sessions("sess_neko", sessions.NewCookieStore([]byte("secret123"))))
 
   m.GET("/", func (ctx *neko.Context) {
     ctx.Session.Set("myvalue", "Session Save")
